@@ -5,6 +5,7 @@ const links = [
   { id: "5ffced54-9a63", href: "/client", label: "client" },
   { id: "5ffcee80-9a63", href: "/drinks", label: "drinks" },
   { id: "5ffcefa2-9a63", href: "/tasks", label: "tasks" },
+  { id: "5ffcefa2-9a63", href: "/prisma-example", label: "prisma" },
 ];
 
 const Navbar = () => {
