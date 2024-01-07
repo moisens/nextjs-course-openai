@@ -1,12 +1,15 @@
-const EditForm = () => {
-  return <div>t</div>;
-};
+"use client";
 
-export default EditForm;
+import { editTask } from "../utils/actions";
 
-/*
+const EditForm = ({ task }) => {
+  const { id, content, completed } = task;
 
-<form className="max-w-sm bg-base-100 p-12 border border-base-300  rounded-lg">
+  return (
+    <form
+      action={editTask}
+      className="max-w-sm bg-base-100 p-12 border border-base-300  rounded-lg"
+    >
       <input type="hidden" name="id" value={id} />
       <input
         type="text"
@@ -28,5 +31,7 @@ export default EditForm;
       </div>
       <button className="btn btn-primary btn-block btn-sm">Edit</button>
     </form>
+  );
+};
 
-*/
+export default EditForm;
