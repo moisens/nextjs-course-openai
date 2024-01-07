@@ -1,4 +1,5 @@
 "use server";
+import { redirect } from "next/navigation";
 import prisma from "./db";
 import { revalidatePath } from "next/cache";
 
@@ -28,6 +29,20 @@ export const getTask = async (id) => {
   const task = await prisma.task.findUnique({
     where: { id },
   });
+  return task;
 };
 
-export const editTask = async (formData) => {};
+export const editTask = async (formData) => {
+  const id = formData.get("id");
+  const content = formData.get("content");
+  const completed = formData.get("completed");
+
+  await prisma.task.update({
+    where: { id },
+    data: {
+      content,
+      completed: completed === "on" ? true : false,
+    },
+  });
+  redirect("/tasks");
+};
